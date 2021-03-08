@@ -7,9 +7,9 @@ const TodoList = (props) => {
   let [editmsg, setEditMsg] = useState("");
   return (
     <ul>
-      {props.todos.map((items) => (
+      {props.todos.map((items, id) => (
         <>
-          <li>
+          <li key={items.id}>
             {editable && items.id === editmsg.id ? (
               <input
                 className="edit-input"

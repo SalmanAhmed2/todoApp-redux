@@ -1,10 +1,11 @@
+import {ADD_TODO,DELETE_TODO,EDIT_TODO}from '../actions/actions'
 const initialState = {
   data: [],
 };
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case ADD_TODO:
       return {
         ...state,
         data: [
@@ -15,13 +16,13 @@ const todos = (state = initialState, action) => {
           },
         ],
       };
-    case "DELETE_TODO":
+    case DELETE_TODO:
       const deleteTodos = state.data.filter((todo) => todo.id !== action.id);
       return {
         ...state,
         data: deleteTodos,
       };
-    case "EDIT_TODO":
+    case EDIT_TODO:
       let newValue = state.data.map((todo)=> (todo.id === action.id ? action: todo))
       return {
         ...state,
